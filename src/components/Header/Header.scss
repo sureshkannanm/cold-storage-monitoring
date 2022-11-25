@@ -1,0 +1,66 @@
+@import '../../assets/variables.scss';
+
+.Header {
+  display: flex;
+  height: 70px;
+  background-color: $background;
+  color: $default;
+  padding: 15px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+
+  .AppDetail {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .App-Name {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .logo {
+    font-size: 50px;
+    margin-right: 15px;
+    color: $blue;
+    display: flex;
+
+    .logo-parent {
+      .material-symbols-outlined {
+        font-size: 50px;
+      }
+    }
+
+    .logo-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .material-symbols-outlined {
+        font-size: 15px;
+      }
+    }
+  }
+  .Action {
+    position: relative;
+    .AlertButton {
+      background-color: transparent;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      color: $blue;
+      position: relative;
+    }
+    .AlertWarning {
+      background-color: $red;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: flex;
+      position: absolute;
+      top: 4px;
+      right: 10px;
+    }
+  }
+}

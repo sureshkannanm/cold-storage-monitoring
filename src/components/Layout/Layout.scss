@@ -1,0 +1,10 @@
+@import '../../assets/variables.scss';
+
+.Layout {
+  height: 100vh;
+  width: 100vw;
+  background-color: #0b0a10;
+  overflow: scroll;
+  position: fixed;
+  box-sizing: border-box;
+}

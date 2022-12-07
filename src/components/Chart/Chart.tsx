@@ -21,9 +21,9 @@ const Chart: React.FC<ChartProps> = (props) => {
       },
     },
     grid: {
-      left: '10%',
-      right: '8 %',
-      bottom: '3%',
+      left: '1%',
+      right: '8%',
+      bottom: '1%',
       containLabel: true,
     },
     xAxis: [
@@ -31,15 +31,15 @@ const Chart: React.FC<ChartProps> = (props) => {
         type: 'time',
         boundaryGap: false,
         axisTick: {
-            alignWithLabel: true
-          },
+          alignWithLabel: true,
+        },
       },
     ],
     yAxis: [
       {
         type: 'value',
         name: 'Humidity',
-        position: 'left',
+        position: 'right',
         alignTicks: true,
         axisLine: {
           show: true,
@@ -51,12 +51,17 @@ const Chart: React.FC<ChartProps> = (props) => {
       {
         type: 'value',
         name: 'Temperature',
-        position: 'Right',
-        alignTicks: true,
+        // max: 100,
+        // min: 0,
+        position: 'left',
+        alignTicks: {
+          show: true,
+        },
         axisLine: {
           show: true,
         },
         axisLabel: {
+          show: true,
           formatter: '{value} F',
         },
       },
@@ -71,6 +76,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         name: 'Temperature',
         type: 'line',
         data: [],
+        yAxisIndex:1
       },
     ],
   };

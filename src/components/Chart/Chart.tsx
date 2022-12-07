@@ -1,6 +1,5 @@
 import './Chart.scss';
 import ReactEcharts from 'echarts-for-react';
-import * as echarts from 'echarts';
 import { useEffect, useState } from 'react';
 type ChartProps = {
   series: any;
@@ -76,7 +75,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         name: 'Temperature',
         type: 'line',
         data: [],
-        yAxisIndex:1
+        yAxisIndex: 1,
       },
     ],
   };
@@ -92,14 +91,18 @@ const Chart: React.FC<ChartProps> = (props) => {
         time[i].getTime(),
         x.data.temp,
       ]);
-
-      optionChart.series[0].data = humidity;
-      optionChart.series[1].data = temp;
-      setOptions(optionChart);
+      const updateOptions = (humidity: any, temp: any) => {
+        optionChart.series[0].data = humidity;
+        optionChart.series[1].data = temp;
+        setOptions(optionChart);
+      };
+      updateOptions(humidity, temp);
     } else {
       console.error('Series not Availale');
     }
-  }, [props.series]);
+  }, [props.series]);// eslint-disable-line react-hooks/exhaustive-deps
+
+
   return (
     <div className="card">
       {options ? <ReactEcharts option={options} /> : ''}

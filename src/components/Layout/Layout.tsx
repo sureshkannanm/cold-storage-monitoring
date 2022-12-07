@@ -23,7 +23,7 @@ const Layout = () => {
       console.debug('Terminating Worker ');
       worker?.terminate();
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (worker) {
@@ -64,7 +64,7 @@ const Layout = () => {
         queryField: 'assetId',
         queryInputs: assets,
       });
-  }, [assets]);
+  }, [assets]);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="Layout">

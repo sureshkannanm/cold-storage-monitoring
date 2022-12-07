@@ -1,6 +1,4 @@
 import './Dashboard.scss';
-import ReactEcharts from "echarts-for-react"; 
-import * as echarts from 'echarts'
 import Chart from '../Chart/Chart';
 import { useEffect } from 'react';
 type DashboardProps = {
@@ -17,6 +15,7 @@ const Dashboard:React.FC<DashboardProps>  = (props) => {
           props.timeSeries.map((series,i) => {
             if(series[0]?.assetId)
               return <Chart series={series} key={i}/>
+            return ''
           })
       }
     </div>

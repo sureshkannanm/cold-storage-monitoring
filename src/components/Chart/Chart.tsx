@@ -61,7 +61,7 @@ const Chart: React.FC<ChartProps> = (props) => {
         },
         axisLabel: {
           show: true,
-          formatter: '{value} F',
+          formatter: '{value} C',
         },
       },
     ],

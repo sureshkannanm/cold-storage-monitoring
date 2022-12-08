@@ -49,7 +49,7 @@ const excuteAction = async (command, data) => {
         for(const asset of data.queryInputs){
             const query= {}
             query[data.queryField] = asset
-            const a = await coll?.aggregate([{$match:query}, {$sort:{'timestamp':-1}}, {'$limit': 50}])
+            const a = await coll?.aggregate([{$match:query}, {$sort:{'timestamp':-1}}, {'$limit': 20}])
             result.push(a)
         }
 

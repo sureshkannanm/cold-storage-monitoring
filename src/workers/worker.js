@@ -44,17 +44,20 @@ const excuteAction = async (command, data) => {
       const coll = mongodb
         ?.db(process.env.REACT_APP_DB_NAME)
         .collection(data.collection);
-      if(data.queryInputs.length>0){
-
-        for(const asset of data.queryInputs){
-            const query= {}
-            query[data.queryField] = asset
-            const a = await coll?.aggregate([{$match:query}, {$sort:{'timestamp':-1}}, {'$limit': 20}])
-            result.push(a)
+      if (data.queryInputs.length > 0) {
+        for (const asset of data.queryInputs) {
+          const query = {};
+          query[data.queryField] = asset;
+          const a = await coll?.aggregate([
+            { $match: query },
+            { $sort: { timestamp: -1 } },
+            { $limit: 20 },
+          ]);
+          result.push(a);
         }
 
         postMessage({
-          message: 'findMany-' + data.collection,   
+          message: 'findMany-' + data.collection,
           data: result,
         });
       }

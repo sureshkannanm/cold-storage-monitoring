@@ -11,6 +11,7 @@ const Alerts = React.lazy(() => import('../Alerts/Alerts'));
 const Layout = () => {
   const [worker, setWorker] = useState<any>(null); 
   const [assets, setAssets] = useState<string[]>([]);
+  const [alerts, setAlerts] = useState<string[]>([]);
   const [timeSeries, setTimeSeries] = useState<any[]>([]);
 
   useEffect(() => {
@@ -34,6 +35,11 @@ const Layout = () => {
             command: 'find',
             collection: process.env.REACT_APP_COLLECTION_ASSETS,
           });
+
+          worker.postMessage({
+            command: 'find',
+            collection: process.env.REACT_APP_COLLECTION_ALERTS,
+          });
         }
 
         if (event.data.message === 'find-assets') {
@@ -42,6 +48,10 @@ const Layout = () => {
             assets.push(obj.assetId);
           });
           setAssets(assets);
+        }
+
+        if (event.data.message === 'find-alerts') {
+          setAlerts(event.data.data);
         }
 
         if (event.data.message === 'findMany-timeseries') {
@@ -83,7 +93,7 @@ const Layout = () => {
             path="/alerts"
             element={
               <React.Suspense fallback="Loading .... ">
-                <Alerts />
+                <Alerts alerts={alerts}/>
               </React.Suspense>
             }
           />

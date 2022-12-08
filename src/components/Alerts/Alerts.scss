@@ -1,0 +1,19 @@
+.Alert {
+  margin: 15px;
+  border: 1px solid #161627;
+  background-color: #161627;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  height: 70px;
+  padding: 15px;
+  border-radius: 15px;
+  border-left-width: 10px;
+  border-left-color: #f05133;
+
+  .time {
+    font-size: 14px;
+    color: #f2f2f39e;
+  }
+}
